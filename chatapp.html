@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<!--Created by Muneeb Alvi-->
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>Chat App</title>
+
+    <!--Styles defined for various elements-->
+    <style type = "text/css">
+    <!--
+      #leftColumn  { border: thin solid black;
+                      width: 9cm; 
+                     height: 16cm;
+                     position:absolute;
+                     top:3cm; left:2mm; }
+                     
+    #rightColumn  { border: thin solid black;
+                     position: absolute;
+                      width: 26cm; 
+                     height: 16cm; 
+                     top: 3cm; left: 95mm}
+                     
+     #innerRightColumn {height: 12cm; overflow:auto; width: 18cm}              
+    
+     p.person1{ padding-left: 2mm; padding-top:2mm;height:2cm; width:8cm; margin-left: 1cm; background-color: Black;
+                color:White; border: medium solid green; }
+       .person2 { padding-left: 2mm; padding-top:2mm;height:2cm; width:8cm; margin-left: 5cm; margin-top:5mm; background-color: RGB(255, 165, 0);
+                color:White; border: medium solid green; }
+    
+    -->
+    </style> <!--end of style definitions-->
+
+    <script type = "text/javascript"> //Script to change colors and make text bubbles
+    <!--
+        function addChat(person) { //Function to add speech/text bubbles
+
+           if (person == "one") {
+                var input = document.getElementById("person1Text").value;
+                var output = document.getElementById("Livechat");
+                output.innerHTML=output.innerHTML + ("<p class=person1>" + input + "</p>");
+               
+            }
+            if (person == "two") {
+
+                var input = document.getElementById("person2Text").value;
+                var output = document.getElementById("Livechat");
+                output.innerHTML=output.innerHTML + ("<p class=person2>" + input + "</p>");
+            }
+        }
+    //-->
+    </script> <!--End of script-->
+
+</head><!--End of body-->
+
+<body>
+<h1>Chat App</h1>
+<center><a target = "_blank" href = "http://www.bigeast.com">Click here to go to the Big East website</a></center>
+
+<div id = "leftColumn"> <!--Div tag to make left column and include various elements-->
+
+<h2>Big East Conference Records</h2>
+
+<table>    <!--Table for teams-->
+    <tr><th>Big East Teams</th> <th>Wins</th>  <th>Losses</th></tr>
+    <tr><td>Louisville</td>     <td>5</td>  <td>2</td></tr>
+    <tr><td>Cincinnati</td>     <td>4</td>  <td>2</td></tr>
+    <tr><td>West Virginia</td>  <td>4</td>  <td>2</td></tr>
+    <tr><td>Rutgers</td>        <td>4</td>  <td>3</td></tr>
+    <tr id = "best"><td>Pittsburgh</td>     <td>3</td>  <td>3</td></tr>
+    <tr><td>Connecticut</td>    <td>3</td>  <td>3</td></tr>
+    <tr><td>Syracuse</td>       <td>1</td>  <td>5</td></tr>
+    <tr><td>USF</td>            <td>1</td>  <td>5</td></tr>  
+</table>
+
+</div><!--end of left column-->
+
+<div id = "rightColumn"> <!--Div tag for right column-->
+
+<h2>Live Conference Chat</h2>
+
+<div id = "innerRightColumn"> <!--another Div tag to further organize right column-->
+
+
+<p class="person1">Do you love programming?
+</p>
+
+<p class="person2">Yes, I love HTML
+</p>
+
+<p class="person1">You bet - especially when you combine it with CSS...
+</p>
+
+<p class="person2">...and Javascript!
+</p>
+
+<span id = "Livechat"></span>
+
+</div> <!--End of internal div tag in right column-->
+
+<hr />
+
+<!--Input buttons to chat-->
+<p><span style = "color: Blue; margin-left: 5mm">Person 1</span> 
+<input type = "text" size = "70" maxlength = "70" id = "person1Text" />
+<input type = "button"  value = "submit" id = "person1Button" onclick = "addChat('one')" />
+<br />
+
+<span style = "color: Blue; margin-left: 5mm">Person 2</span>
+<input type = "text" size = "70" maxlength = "70" id = "person2Text" />
+<input type = "button"  value = "submit" id = "person2Button" onclick = "addChat('two')" />
+</p>
+
+</div> <!--end of right column-->
+</body>
+</html>

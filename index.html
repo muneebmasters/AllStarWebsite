@@ -1,0 +1,18 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--Created By: Muneeb Alvi--> 
+<!--This file is the index.html file that will set the layout for the website-->
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Individual Web Page</title> <!--title displayed at top of browser-->
+</head>
+
+<frameset rows="25%,*">  <!--starts layout of page with frameset using two rows-->
+    <frame  src = "header.html" name = "top"></frame> <!--first row, first column using the header.html file-->
+    <frameset cols = "15%,*">  <!--second row, two columns using nested frameset and menu.html and body.html files-->
+        <frame src = "menu.html" name = "left"></frame>
+        <frame src = "body.html" name = "center"></frame>
+    </frameset> <!--end of nested frameset-->
+</frameset> <!--end of outer frameset used for layout-->
+
+</html>

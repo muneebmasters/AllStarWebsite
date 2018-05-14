@@ -1,0 +1,201 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--Created by Muneeb Alvi -->
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Contact us</title> <!--title that appears at top of browser--> 
+
+
+    <script type = "text/javascript"> //Script that contains function repeat for form validation 
+
+        function repeat() { //this function is called by the submit button
+
+            var name = document.getElementById("nameInput");//Declaring and assigning some variables        
+            var rating = document.getElementById("chosenRating") //from the elements on the form
+            var timesVisited = document.getElementById("times");;
+            var message = document.getElementById("textarea");
+            var reason, thoughts = "";
+
+            //this set of if statements checks and sets the rating value
+            //to the variable rating based on the element index in the form
+            if (rating.selectedIndex == 0) {
+                rating = "No selection made for rating";
+            }
+            else {
+                rating = rating.value;
+            }
+
+            //this set of if statements makes sure the user entered values in the required
+            //elements of the form
+            if (name.value == "" || message.value == "Place your message here") {
+                alert("You must enter a name and a message");
+                return false;//return false for incompletion of form
+            }
+            else {
+                message = message.value;
+                name = name.value;
+            }
+
+            //this set of if statements checks and sets a value to timesVisited based
+            //on <select> element in form
+            if (timesVisited.selectedIndex == 0) {
+                timesVisited = "No selection made for visits to our site";
+            }
+            else {
+                timesVisited = timesVisited.value;
+            }
+           
+            //this set of if statements checks and sets a value to reason based on a radio box in the form
+            if (document.getElementById("Reason11").checked) {
+                reason = "Technical Issues";
+            }
+            else if (document.getElementById("Reason12").checked) {
+                reason = "Improvements to site";
+            }
+            else  {
+                reason = "Other";
+            }
+            
+            //these set of if statements add together the values of the checboxes in the form
+            if (document.getElementById("interests11").checked){
+                thoughts = thoughts + "<br \>" + "Your site is the best";
+            } 
+            if (document.getElementById("interests12").checked){
+                 thoughts = thoughts + "<br \>" + "Everyone else's sites are the worst";
+            } 
+            if (document.getElementById("interests13").checked){
+                 thoughts = thoughts + "<br \>" + "Oh, wow the colors on your site just amaze me";
+            } 
+            if (document.getElementById("interests14").checked){
+                 thoughts = thoughts + "<br \>" + "I don't have anything negative to say";
+            } 
+            if (document.getElementById("interests15").checked){
+                 thoughts = thoughts + "<br \>" + "I really really like this site";
+            } 
+
+            document.getElementById("nameOutput").innerHTML =  name; //Setting the text between the various <span>
+            document.getElementById("reasonOutput").innerHTML = reason;//tags to display results
+            document.getElementById("messageOutput").innerHTML = message; 
+            document.getElementById("thoughtOutput").innerHTML = thoughts;
+            document.getElementById("ratingOutput").innerHTML = rating;
+            document.getElementById("frequencyOutput").innerHTML = timesVisited;
+
+            alert("Thank you for your feedback\nReview your form submission below");//alert box to inform success
+ 
+            return true; //return true for success
+
+
+
+        }
+    </script>
+
+    <script type = "text/javascript">   //Script that contains function resetEverything if 
+        function resetEverything() {    //if user selects reset button. Resets form validation information
+            document.getElementById("nameOutput").innerHTML = "";
+            document.getElementById("reasonOutput").innerHTML = "";
+            document.getElementById("messageOutput").innerHTML = "";
+            document.getElementById("thoughtOutput").innerHTML = "";
+            document.getElementById("ratingOutput").innerHTML = "";
+            document.getElementById("frequencyOutput").innerHTML = "";
+        }
+    </script>
+</head><!--end of head with scripts-->
+
+<body alink = "#3399ff" vlink="#3399ff" link = "#3399ff">
+            
+            <td width="70%" colspan="2"><!--main body section for this web page, takes up 2 columns-->               
+                <h2 align="center"><font color = "#3399ff">Contact Me</font></h2>            
+
+                <p>A <font color = "red">*</font> denotes a required field</p>     
+                    <!--Form used to take in various information from user to contact us-->
+                   <form id = "myform" action="mailto:mra48@pitt.edu?Subject=Contact%20Form" method = "post" enctype = "text/plain" >
+                        <p><b>Name<font color = "red">*</font></b>  
+                        <input type = "text" name = "inquirerName" id = "nameInput" /> <!--Input textbox for name-->
+                        </p>                                                           <!--must be completed-->
+
+                        <!--Radio <input> for reason of contact. Must be completed-->
+                        <p><b>Reason for contact</b><font color = "red">*</font></br> 
+                        <input type= "radio" name = "reason" id = "Reason11" value = "1" checked/>Technical Issues  
+                        <input type= "radio" name = "reason" id = "Reason12" value = "2"/>Improvements to site
+                        <input type= "radio" name = "reason" id = "Reason13" value = "3"/>Other
+                        </p>
+
+                        <!--Textarea to give explicit reason for contact. Must be completed-->
+                        <p><b>Message</b><font color = "red">*</font><br />
+                            <textarea name = "txtReason" id  = "textarea" cols = "25" rows = "5" />Place your message here</textarea>                           
+                        </p>
+                        
+                        <p>
+                            <b>NOTE:</b> Before you submit, please fill out this quick survey </br> 
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            You can review your choices below after you click submit form<br />                                     
+                        </p>
+
+                            <p>
+                            <b>Survey</b></br>  <!--Survey, need not be completed-->
+                            </p>
+
+                            What do you  think of my site? </br><!--Group of checkboxes to give company opinion-->
+                            <p>
+                            <input type="checkbox" name="interests" value="1" id = interests11 checked />Your site is the best</br>
+                            <input type="checkbox" name="interests" value="2" id = interests12 checked />Everyone else's sites are the worst</br>
+                            <input type="checkbox" name="interests" value="3" id = interests13 checked />Oh, wow the colors on your site just amaze me</br>
+                            <input type="checkbox" name="interests" value="4" id = interests14 checked />I don't have anything negative to say</br>
+                            <input type="checkbox" name="interests" value="5" id = interests15 checked />I really really like this site</br>   
+                            </p>
+
+                            <p>What would you rate my site out of 100?</br> <!--<select> tag for company rating-->
+                                <select name = "time" id = "chosenRating">
+                                    <option selected = "selected">Click here to choose</option>
+                                    <option>100</option> 
+                                    <option>98</option>
+                                    <option>97</option>
+                                    <option>96</option> 
+                                    <option>95</option>
+                                    <option>94</option>
+                                    <option>93</option>
+                                    <option>92</option> 
+                                    <option>91</option> 
+                                    <option>90</option> 
+                                    <option>I couldn't go lower than 90</option> 
+                                </select>
+                            </p>
+
+
+                            <p>How often do you visit my site </br> <!--<select> tag for visits to this web site-->
+                                <select name = "time" id = "times">
+                                    <option selected = "selected">Click here to choose</option>
+                                    <option>I never left since the day it was created</option>
+                                    <option>At least once a day</option>
+                                    <option>At least seven times a week</option>
+                                    <option>At least twenty-eight times a month</option>
+                                    <option>At least three hundred sixty-five times a year</option> </br> 
+                                 </select>
+                            </p>
+                              
+                             <p><!--Submit and reset buttons-->
+                                <input  type = "button" id = "submitButton" value = "Submit Form" onclick = "return repeat()"/>
+                                <input type = "reset" name = "resetbutton" value = "Reset Form" onclick = "resetEverything()"/>
+                             </p>          
+                   
+                   </form> <!--End of form-->
+
+                   <!--review of user's choices displayed using <span> tags-->
+                   <h3>Review Your Choices Here</h3>
+
+                   <p><b>Name Entered: </b><span id = "nameOutput"></span></p>
+
+                   <p><b>Reason for contact: </b><span id = "reasonOutput"></span></p>
+
+                   <p><b>Message: </b><span id = "messageOutput"></span></p>
+
+                   <p><b>What you think of us: </b><span id = "thoughtOutput"></span></p>
+
+                   <p><b>Rating out of 100: </b><span id = "ratingOutput"></span></p>
+
+                   <p><b>The frequency of visits to our site: </b><span id = "frequencyOutput"></span></p>
+
+            </td><!--end of main body section-->                 
+    </table><!--end of main table used for layout-->
+</body>
+</html>
